@@ -1,6 +1,8 @@
 npx create-react-app .
 yarn add @mui/material @emotion/react @emotion/styled
-
+yarn add react-redux
+yarn add react-router-dom
+yarn add prettier
 
 # Getting Started with Create React App
 
