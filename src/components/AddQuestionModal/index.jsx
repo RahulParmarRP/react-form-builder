@@ -8,6 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle'
 import TextField from '@mui/material/TextField'
 import MenuItem from '@mui/material/MenuItem'
 import CheckboxesGroup from '../CheckBoxGroup'
+import { QUESTION_TYPES } from '../../constants'
 const currencies = [
     {
         label: 'Text',
@@ -27,8 +28,54 @@ const currencies = [
     },
 ]
 
+export const renderAnswerType = (questionType, mode) => {
+    debugger
+    switch (mode) {
+        case "EDIT":
+            switch (questionType) {
+                case QUESTION_TYPES.TEXT:
+                    return <TextField id="outlined-basic" label="Answer" variant="outlined" />
 
-export const ScrollDialog = () => {
+                case QUESTION_TYPES.MULTIPLE_CHOICE:
+                    return (
+                        <>
+                            <TextField
+                                id="outlined-multiline-flexible"
+                                label="Multiline"
+                                multiline
+                                rows={2}
+                            />
+                        </>
+                    )
+
+                default:
+                    break
+            }
+
+            break
+        case "VIEW":
+            switch (questionType) {
+                case QUESTION_TYPES.TEXT:
+                    return <TextField id="outlined-basic" label="Answer" variant="outlined" />
+                case QUESTION_TYPES.MULTIPLE_CHOICE:
+                    return (
+                        <>
+                            <CheckboxesGroup />
+                        </>
+                    )
+
+                default:
+                    break
+            }
+
+            break
+        default: {
+            return <h1>No Answer</h1>
+        }
+    }
+}
+
+export const AddQuestionModal = () => {
     const [open, setOpen] = React.useState(false)
     const [scroll, setScroll] = React.useState('paper')
     const [currency, setCurrency] = React.useState('EUR')
@@ -54,19 +101,10 @@ export const ScrollDialog = () => {
             }
         }
     }, [open])
-    const renderAnswerType = (componentType) => {
-        debugger
-        switch (componentType) {
 
-            case "text": return <TextField id="outlined-basic" label="Answer" variant="outlined" />
-            case "multiChoice": return <CheckboxesGroup />
-            default: return <h1>No project match</h1>
-        }
-    }
     return (
         <div>
-            <Button onClick={handleClickOpen('paper')}>scroll=paper</Button>
-            <Button onClick={handleClickOpen('body')}>scroll=body</Button>
+            <Button onClick={handleClickOpen('paper')}>Add Question</Button>
             <Dialog
                 maxWidth={'md'}
                 open={open}
@@ -110,4 +148,4 @@ export const ScrollDialog = () => {
         </div>
     )
 }
-export default ScrollDialog
+export default AddQuestionModal

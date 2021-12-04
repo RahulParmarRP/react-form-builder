@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "type": "text"
+    },
+    {
+        "id": 2,
+        "type": "multiple_choice",
+        "defaultNumberOfChoices": 3
+    }
+]
