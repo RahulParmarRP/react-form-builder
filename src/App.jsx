@@ -8,6 +8,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import Container from '@mui/material/Container'
 import Navbar from './components/Navbar'
 import Toolbar from '@mui/material/Toolbar'
+import FormResponse from './pages/FormResponse'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Switch>
             <Route exact path={'/'} component={Dashboard} />
             <Route exact path={'/forms'} component={FormsList} />
+            <Route exact path={'/forms/:id'} component={FormResponse} />
             <Redirect to={'/'} />
           </Switch>
         </Container>

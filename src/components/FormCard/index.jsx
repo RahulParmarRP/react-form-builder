@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography'
 import { useHistory } from 'react-router-dom'
 export const FormCard = ({ form }) => {
     const history = useHistory()
+    const handleGoToFormClick = () => history.push(`/forms/${form.slug}`)
     return (
         <Card sx={{ maxWidth: 275 }}>
             <CardContent>
@@ -15,19 +16,20 @@ export const FormCard = ({ form }) => {
                     Word of the Day
                 </Typography> */}
                 <Typography variant="h5" component="div">
-                    Tile of form
+                    {form.title}
                 </Typography>
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    creted at
+                    {form.createdAt}
                 </Typography>
                 <Typography variant="body2" noWrap={false}>
-                    https:{window.origin}/forms/slugadsfasdfasdfasdfasdf
+                    {window.origin}/forms/{form.slug}
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button variant="contained" size="small">Go To Form</Button>
+                <Button onClick={() => handleGoToFormClick()}
+                    variant="contained" size="small">Go To Form</Button>
             </CardActions>
-        </Card>
+        </Card >
     )
 }
 export default FormCard

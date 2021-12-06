@@ -3,7 +3,9 @@ import React from 'react'
 import AddQuestionModal from '../../components/AddQuestionModal'
 import Grid from '@mui/material/Grid'
 import { renderAnswerType } from '../../components/AddQuestionModal'
+import { useHistory } from 'react-router-dom'
 const Dashboard = () => {
+    const history = useHistory()
     const mode = "VIEW"
     const [form, setForm] = React.useState({
         formQuestionsData: [
@@ -21,6 +23,9 @@ const Dashboard = () => {
             }
         ]
     })
+    const handleSaveFormClick = () => {
+        history.push('/forms')
+    }
     return (
         <Grid container spacing={2}>
             <Grid item xs={8}>
@@ -38,7 +43,7 @@ const Dashboard = () => {
             </Grid>
             <Grid item xs={4}>
                 <AddQuestionModal />
-                <Button variant="contained">Save Form</Button>
+                <Button variant="contained" onClick={() => handleSaveFormClick()}>Save Form</Button>
             </Grid>
         </Grid>
     )
