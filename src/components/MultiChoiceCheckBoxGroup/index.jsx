@@ -6,14 +6,15 @@ import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import FormHelperText from '@mui/material/FormHelperText'
 import Checkbox from '@mui/material/Checkbox'
+import { QUESTION_TYPES } from '../../constants'
 
-export default function CheckboxesGroup() {
+export const MultiChoiceCheckBoxGroup = ({ question }) => {
     const [state, setState] = React.useState({
         gilad: true,
         jason: false,
         antoine: false,
     })
-
+    const [localState, setLocalState] = React.useState(question)
     const handleChange = (event) => {
         setState({
             ...state,
@@ -26,15 +27,21 @@ export default function CheckboxesGroup() {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
-                <FormLabel component="legend">Assign responsibility</FormLabel>
+            <FormControl sx={{ mt: 0 }} component="fieldset" variant="standard">
+                {/* <FormLabel component="legend">Assign responsibility</FormLabel> */}
                 <FormGroup>
-                    <FormControlLabel
-                        control={
-                            <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-                        }
-                        label="Gilad Gray"
-                    />
+                    {question.answer.map((option, index) => {
+                        return (
+                            <FormControlLabel
+                                control={
+                                    <Checkbox checked={option.checked} onChange={handleChange}
+                                        name={option.option} />
+                                }
+                                label={option.option}
+                            />
+                        )
+                    })}
+
                     <FormControlLabel
                         control={
                             <Checkbox checked={jason} onChange={handleChange} name="jason" />
@@ -48,8 +55,9 @@ export default function CheckboxesGroup() {
                         label="Antoine Llorca"
                     />
                 </FormGroup>
-                <FormHelperText>Be careful</FormHelperText>
+                {/* <FormHelperText>Be careful</FormHelperText> */}
             </FormControl>
         </Box>
     )
 }
+export default MultiChoiceCheckBoxGroup

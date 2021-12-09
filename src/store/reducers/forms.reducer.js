@@ -15,13 +15,13 @@ const INITIAL_STATE = {
             {
                 id: 1,
                 type: 'text',
-                question: 'q1',
+                question: 'qteststse',
                 answer: 'text answer',
             },
             {
                 id: 2,
                 type: 'multiple_choice',
-                question: 'q2',
+                question: 'multi cahoices askfjsad',
                 answer: [
                     {
                         id: 1,
