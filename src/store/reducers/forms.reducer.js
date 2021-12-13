@@ -25,12 +25,12 @@ const INITIAL_STATE = {
                 answer: [
                     {
                         id: 1,
-                        option: "Football",
+                        option: "asdsaf",
                         checked: false
                     },
                     {
                         id: 2,
-                        option: "Basketball",
+                        option: "Baskasdasfdetball",
                         checked: false
                     },
                     {
