@@ -6,6 +6,7 @@ yarn add prettier
 yarn add redux-thunk
 yarn add @reduxjs/toolkit react-redux
 yarn add react-router-dom@5.0.0
+yarn add react-hook-form
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
